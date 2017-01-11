@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Definition of Website Model -->
+<model name="makews:webSiteModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+	<!-- Optional meta-data about the model -->
+	<description>Website Model</description>
+	<author>Momcilo Dzunic</author>
+	<version>1.0</version>
+
+	<!-- Imports are required to allow references to definitions in other models -->
+	<imports>
+		<!-- Import Alfresco Dictionary Definitions -->
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<!-- Import Alfresco Content Domain Model Definitions -->
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+	</imports>
+
+	<!-- Introduction of new namespaces defined by this model -->
+	<namespaces>
+		<namespace uri="http://www.make.rs/model/website/1.0" prefix="makews" />
+	</namespaces>
+
+	<types>
+		<!-- Enterprise-wide generic document type -->
+		<type name="makews:webSitePage">
+			<title>Website Page</title>
+			<parent>cm:folder</parent>
+			<properties>
+				<property name="makews:displayTitle">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+				<property name="makews:displaySubtitle">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+				<property name="makews:locale">
+					<type>d:any</type>
+					<mandatory>false</mandatory>
+				</property>
+				<property name="makews:template">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+				</property>
+				<property name="makews:icon">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+				</property>
+				<property name="makews:skeletonImages">
+					<type>d:path</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+				</property>
+				<property name="makews:containers">
+					<type>d:any</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+				</property>
+				<property name="makews:nativeOrder">
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+						<facetable>true</facetable>
+					</index>
+				</property>
+				<property name="makews:active">
+					<type>d:boolean</type>
+					<default>false</default>
+				</property>
+				<property name="makews:relatedPages">
+					<type>d:path</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+				</property>
+				<property name="makews:menus">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+			</properties>
+			<mandatory-aspects>
+				<aspect>cm:titled</aspect>
+				<aspect>cm:author</aspect>
+				<aspect>cm:taggable</aspect>
+				<aspect>cm:generalclassifiable</aspect>
+			</mandatory-aspects>
+		</type>
+		<type name="makews:webSitePageContent">
+			<title>Website Page Content</title>
+			<parent>cm:content</parent>
+			<mandatory-aspects>
+				<aspect>cm:titled</aspect>
+				<aspect>cm:author</aspect>
+				<aspect>cm:taggable</aspect>
+				<aspect>cm:generalclassifiable</aspect>
+			</mandatory-aspects>
+		</type>
+		<type name="makews:webSitePageBinaryContent">
+			<title>WBIF Website Page Binary Content</title>
+			<parent>cm:content</parent>
+			<mandatory-aspects>
+				<aspect>cm:titled</aspect>
+				<aspect>cm:author</aspect>
+				<aspect>cm:taggable</aspect>
+				<aspect>cm:generalclassifiable</aspect>
+			</mandatory-aspects>
+		</type>
+	</types>
+
+	<aspects>
+		<aspect name="makews:webSiteGroupPage">
+			<title>Website page grouping item</title>
+		</aspect>
+		<aspect name="makews:webSiteLinkPage">
+			<title>Website page link item</title>
+			<properties>
+				<property name="makews:linkTarget">
+					<type>d:path</type>
+					<mandatory>false</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="makews:timable">
+			<title>Website page have date property</title>
+			<properties>
+				<property name="makews:date">
+					<type>d:date</type>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="makews:newsPage">
+			<title>Website news page</title>
+			<mandatory-aspects>
+				<aspect>makews:timable</aspect>
+			</mandatory-aspects>
+		</aspect>
+		<aspect name="makews:eventPage">
+			<title>Website event page</title>
+			<properties>
+				<property name="makews:showRegistrationForm">
+					<type>d:boolean</type>
+					<default>false</default>
+				</property>
+				<property name="makews:registrationFormTemplate">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+				</property>
+				<property name="makews:calendarEntry">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+				</property>
+				<property name="makews:registrationCode">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+				</property>
+			</properties>
+			<mandatory-aspects>
+				<aspect>makews:timable</aspect>
+			</mandatory-aspects>
+		</aspect>
+		<aspect name="makews:archived">
+			<title>Website archived page</title>
+		</aspect>
+	</aspects>
+</model>

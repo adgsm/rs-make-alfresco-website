@@ -1,0 +1,9 @@
+<webscript>
+	<shortname>Delete website page</shortname>
+	<description>Delete website page for specified nodeRef</description>
+	<url>/rs/make/website/page/remove</url>
+	<url>/rs/make/website/page/remove.json</url>
+	<format default='json'>extension</format>
+	<authentication runas='admin'>user</authentication>
+	<transaction>required</transaction>
+</webscript>

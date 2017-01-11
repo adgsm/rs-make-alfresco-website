@@ -1,0 +1,8 @@
+<webscript>
+	<shortname>Transform website page to PDF</shortname>
+	<description>Transform website page to PDF and stream it back to client</description>
+	<url>/rs/make/website/pages/transform</url>
+	<format default=''>argument</format>
+	<authentication>none</authentication>
+	<transaction>none</transaction>
+</webscript>

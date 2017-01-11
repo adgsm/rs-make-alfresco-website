@@ -1,0 +1,9 @@
+<webscript>
+	<shortname>Add/Create website page</shortname>
+	<description>Add/Create website page</description>
+	<url>/rs/make/website/pages/add</url>
+	<url>/rs/make/website/pages/add.json</url>
+	<format default='json'>extension</format>
+	<authentication runas='admin'>user</authentication>
+	<transaction>required</transaction>
+</webscript>

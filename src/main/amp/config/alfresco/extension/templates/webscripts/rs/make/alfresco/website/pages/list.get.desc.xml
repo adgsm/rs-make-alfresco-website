@@ -1,0 +1,9 @@
+<webscript>
+	<shortname>Retrieve website pages</shortname>
+	<description>Retrieve website pages for specified filter</description>
+	<url>/rs/make/website/pages/list</url>
+	<url>/rs/make/website/pages/list.json</url>
+	<format default='json'>extension</format>
+	<authentication>guest</authentication>
+	<transaction>none</transaction>
+</webscript>

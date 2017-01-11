@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+<!--
+	Licensed to the Apache Software Foundation (ASF) under one or more
+	contributor license agreements.  See the NOTICE file distributed with
+	this work for additional information regarding copyright ownership.
+	The ASF licenses this file to You under the Apache License, Version 2.0
+	(the "License"); you may not use this file except in compliance with
+	the License.  You may obtain a copy of the License at
+	
+	http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+-->
+<beans>
+	<bean id="webscript.rs.make.alfresco.website.pages.list.get" class="rs.make.alfresco.website.pages.MakeWebsitePagesList" parent="webscript">
+		<property name="makeStatus" ref="MakeStatus" />
+		<property name="makeCommonHelpers" ref="MakeCommonHelpers" />
+		<property name="makeWebsiteCommon" ref="MakeWebsiteCommon" />
+		<property name="searchService" ref="SearchService" />
+		<property name="nodeService" ref="NodeService" />
+		<property name="fileFolderService" ref="FileFolderService" />
+		<property name="namespaceService" ref="NamespaceService" />
+		<property name="taggingService" ref="TaggingService" />
+	</bean>
+	<bean id="webscript.rs.make.alfresco.website.pages.add.post" class="rs.make.alfresco.website.pages.MakeWebsitePageAdd" parent="webscript">
+		<property name="alfContent" ref="AlfContent" />
+		<property name="makeStatus" ref="MakeStatus" />
+		<property name="makeLocale" ref="MakeLocale" />
+		<property name="makeCommonHelpers" ref="MakeCommonHelpers" />
+		<property name="makeWebsiteCommon" ref="MakeWebsiteCommon" />
+		<property name="nodeService" ref="NodeService" />
+		<property name="fileFolderService" ref="FileFolderService" />
+		<property name="taggingService" ref="TaggingService" />
+	</bean>
+	<bean id="webscript.rs.make.alfresco.website.pages.remove.delete" class="rs.make.alfresco.website.pages.MakeWebsitePageRemove" parent="webscript">
+		<property name="makeStatus" ref="MakeStatus" />
+		<property name="makeCommonHelpers" ref="MakeCommonHelpers" />
+		<property name="makeWebsiteCommon" ref="MakeWebsiteCommon" />
+		<property name="nodeService" ref="NodeService" />
+		<property name="namespaceService" ref="NamespaceService" />
+		<property name="dictionaryService" ref="DictionaryService" />
+	</bean>
+	<bean id="webscript.rs.make.alfresco.website.pages.transform.get" class="rs.make.alfresco.website.pages.MakeWebsitePageTransform" parent="webscript">
+		<property name="makeStatus" ref="MakeStatus" />
+		<property name="makeCommonHelpers" ref="MakeCommonHelpers" />
+		<property name="makeWebsiteCommon" ref="MakeWebsiteCommon" />
+		<property name="nodeService" ref="NodeService" />
+		<property name="fileFolderService" ref="FileFolderService" />
+		<property name="contentService" ref="ContentService" />
+		<property name="mimetypeService" ref="MimetypeService" />
+		<property name="request" ref="Request" />
+		<property name="alfContent" ref="AlfContent" />
+	</bean>
+</beans>
