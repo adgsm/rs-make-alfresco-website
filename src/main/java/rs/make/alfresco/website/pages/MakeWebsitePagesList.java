@@ -168,6 +168,7 @@ public class MakeWebsitePagesList extends DeclarativeWebScript {
 	private final String REQUEST_NEWS_YOUNGER_THEN_KEY = "news-younger-then";
 	private final String REQUEST_ORDER_COMPARISON_KEY = "order-comparison";
 	private final String REQUEST_TAGS_KEY = "tags";
+	private final String REQUEST_WITHOUT_TAGS_KEY = "without-tags";
 	private final String REQUEST_WITH_ASPECTS_KEY = "with-aspects";
 	private final String REQUEST_WITHOUT_ASPECTS_KEY = "without-aspects";
 	private final String REQUEST_SORT_BY_KEY = "sort-by";
@@ -245,6 +246,7 @@ public class MakeWebsitePagesList extends DeclarativeWebScript {
 		long newsYoungerThen = makeCommonHelpers.getLong( req , REQUEST_NEWS_YOUNGER_THEN_KEY , message , status , false );
 		String orderComparison = makeCommonHelpers.getString( req , REQUEST_ORDER_COMPARISON_KEY , message , status , false );
 		ArrayList<String> tags = makeCommonHelpers.getStrings( req , REQUEST_TAGS_KEY , message , status , false );
+		ArrayList<String> withoutTags = makeCommonHelpers.getStrings( req , REQUEST_WITHOUT_TAGS_KEY , message , status , false );
 		ArrayList<QName> withAspects = makeCommonHelpers.getQNames( req , REQUEST_WITH_ASPECTS_KEY , message , status , false );
 		ArrayList<QName> withoutAspects = makeCommonHelpers.getQNames( req , REQUEST_WITHOUT_ASPECTS_KEY , message , status , false );
 		String sortBy = makeCommonHelpers.getString( req , REQUEST_SORT_BY_KEY , message , status , false );
@@ -267,6 +269,7 @@ public class MakeWebsitePagesList extends DeclarativeWebScript {
 		if( menus != null ) query += makeWebsiteCommon.getMenuPagesQuery( menus );
 		if( nativeOrder > -1 ) query += makeCommonHelpers.getNativeOrderComparisonQuery( nativeOrder , orderComparison , WEBSITE_PAGE_NATIVE_ORDER_PROPERTY );
 		if( tags != null ) query += makeCommonHelpers.getTagsQuery( tags );
+		if( withoutTags != null ) query += makeCommonHelpers.getTagsQuery( withoutTags , true , true );
 		Long newOlderThenObj = ( newsOlderThen > -1 ) ? new Long( newsOlderThen ) : null;
 		Long newYoungerThenObj = ( newsYoungerThen > -1 ) ? new Long( newsYoungerThen ) : null;
 		if( newsOlderThen > -1 || newsYoungerThen > -1 ) query += makeCommonHelpers.getDateQuery( newOlderThenObj , newYoungerThenObj , "gte" , "lte" , WEBSITE_PAGE_NEWS_ASPECT_DATE_PROPERTY );
