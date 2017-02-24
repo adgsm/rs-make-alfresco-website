@@ -41,6 +41,7 @@ import com.google.gson.Gson;
 import rs.make.alfresco.common.message.MakeMessage;
 import rs.make.alfresco.common.status.MakeStatus;
 import rs.make.alfresco.common.webscripts.MakeCommonHelpers;
+import rs.make.alfresco.globalproperties.GlobalProperties;
 
 public class MakeWebsitePagesList extends DeclarativeWebScript {
 
@@ -148,6 +149,8 @@ public class MakeWebsitePagesList extends DeclarativeWebScript {
 	private final QName CALENDAR_END_DATE_PROPERTY = QName.createQName( WEBSITE_PAGE_NAMESPACE_URI , CALENDAR_END_DATE_PROPERTY_NAME );
 	private final String WEBSITE_PAGE_DISPLAY_TITLE_PROPERTY_NAME = "displayTitle";
 	private final QName WEBSITE_PAGE_DISPLAY_TITLE_PROPERTY = QName.createQName( WEBSITE_PAGE_NAMESPACE_URI , WEBSITE_PAGE_DISPLAY_TITLE_PROPERTY_NAME );
+	private final String WEBSITE_APPLICATION_URI_PROPERTY_NAME = "applicationURI";
+	private final QName WEBSITE_APPLICATION_URI_PROPERTY = QName.createQName( WEBSITE_PAGE_NAMESPACE_URI , WEBSITE_APPLICATION_URI_PROPERTY_NAME );
 
 	private final String LUCENE_ID_KEY = "ID";
 	private final String LUCENE_PRIMARY_PARENT_KEY = "PRIMARYPARENT";
@@ -175,6 +178,7 @@ public class MakeWebsitePagesList extends DeclarativeWebScript {
 	private final String REQUEST_SORT_DIR_KEY = "sort-dir";
 
 	private final int MAX_PERMISSION_CHECKS = 10000;
+	private final String APPLICATION_URI = "wbif.application.URI";
 
 	private boolean statusThrown = false;
 
@@ -345,6 +349,7 @@ public class MakeWebsitePagesList extends DeclarativeWebScript {
 		properties.put( WEBSITE_PAGE_RELATIVE_PATH_PROPERTY , relativePath );
 		properties.put( WEBSITE_PAGE_BREADCRUMBS_PROPERTY , breadcrumbs );
 		properties.put( WEBSITE_PAGE_PARENT_PROPERTY , parent );
+		properties.put( WEBSITE_APPLICATION_URI_PROPERTY , getApplicationURI() );
 
 		// convert nativeOrder type from date to long
 		Date nativeOrder = (Date) nodeService.getProperty( result , WEBSITE_PAGE_NATIVE_ORDER_PROPERTY );
@@ -373,5 +378,10 @@ public class MakeWebsitePagesList extends DeclarativeWebScript {
 		}
 
 		return properties;
+	}
+
+	private String getApplicationURI() throws Exception{
+		GlobalProperties globalProperties = new GlobalProperties();
+		return globalProperties.getProperty( APPLICATION_URI );
 	}
 }
