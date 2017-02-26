@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="makeml:mailingListModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+	<description>Mailing list Model</description>
+	<author>Momcilo Dzunic</author>
+	<version>1.0</version>
+
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+	</imports>
+
+	<namespaces>
+		<namespace uri="http://www.make.rs/model/mailinglist/1.0" prefix="makeml" />
+	</namespaces>
+
+	<types>
+		<type name="makeml:mailingList">
+			<title>Mailing list</title>
+			<parent>cm:folder</parent>
+			<properties>
+				<property name="makeml:name">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+				<property name="makeml:email">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+			</properties>
+			<mandatory-aspects>
+				<aspect>cm:titled</aspect>
+				<aspect>cm:author</aspect>
+				<aspect>cm:taggable</aspect>
+				<aspect>cm:generalclassifiable</aspect>
+			</mandatory-aspects>
+		</type>
+	</types>
+
+	<aspects>
+		<aspect name="makeml:archived">
+			<title>Archived mailing list</title>
+		</aspect>
+	</aspects>
+</model>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="makenf:newsFlashModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+	<description>News flash Model</description>
+	<author>Momcilo Dzunic</author>
+	<version>1.0</version>
+
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+	</imports>
+
+	<namespaces>
+		<namespace uri="http://www.make.rs/model/newsflash/1.0" prefix="makenf" />
+	</namespaces>
+
+	<types>
+		<type name="makenf:newsFlash">
+			<title>News flash</title>
+			<parent>cm:folder</parent>
+			<properties>
+				<property name="makenf:to">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+				<property name="makenf:cc">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+				<property name="makenf:bcc">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+				<property name="makenf:subject">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+				<property name="makenf:date">
+					<type>d:date</type>
+				</property>
+			</properties>
+			<mandatory-aspects>
+				<aspect>cm:titled</aspect>
+				<aspect>cm:author</aspect>
+				<aspect>cm:taggable</aspect>
+				<aspect>cm:generalclassifiable</aspect>
+			</mandatory-aspects>
+		</type>
+	</types>
+
+	<aspects>
+		<aspect name="makenf:archived">
+			<title>Archived news flash</title>
+		</aspect>
+	</aspects>
+</model>
