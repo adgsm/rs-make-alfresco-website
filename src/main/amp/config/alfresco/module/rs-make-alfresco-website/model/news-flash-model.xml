@@ -16,7 +16,7 @@
 	<types>
 		<type name="makenf:newsFlash">
 			<title>News flash</title>
-			<parent>cm:folder</parent>
+			<parent>cm:content</parent>
 			<properties>
 				<property name="makenf:to">
 					<type>d:text</type>
