@@ -57,6 +57,11 @@
 						<tokenised>both</tokenised>
 					</index>
 				</property>
+				<property name="makenf:attachment">
+					<type>d:noderef</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+				</property>
 				<property name="makenf:date">
 					<type>d:date</type>
 				</property>
