@@ -1,0 +1,9 @@
+<webscript>
+	<shortname>Unsubscribe from mailing list</shortname>
+	<description>Unsubscribe specified email from mailing lists</description>
+	<url>/rs/make/website/mailinglist/unsubscribe</url>
+	<url>/rs/make/website/mailinglist/unsubscribe.json</url>
+	<format default='json'>extension</format>
+	<authentication runas='admin'>guest</authentication>
+	<transaction>required</transaction>
+</webscript>

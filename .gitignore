@@ -12,3 +12,6 @@ mvnbuild.cmd
 release.properties
 **/.DS_Store
 run.*
+**/.idea
+**/*.iml
+

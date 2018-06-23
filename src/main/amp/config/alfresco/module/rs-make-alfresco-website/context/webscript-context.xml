@@ -56,4 +56,11 @@
 		<property name="request" ref="Request" />
 		<property name="alfContent" ref="AlfContent" />
 	</bean>
+	<bean id="webscript.rs.make.alfresco.website.mailinglist.unsubscribe.delete" class="rs.make.alfresco.website.mailinglist.MakeMailingListUnsubscribe" parent="webscript">
+		<property name="makeStatus" ref="MakeStatus" />
+		<property name="makeCommonHelpers" ref="MakeCommonHelpers" />
+		<property name="namespaceService" ref="NamespaceService" />
+		<property name="searchService" ref="SearchService" />
+		<property name="nodeService" ref="NodeService" />
+	</bean>
 </beans>

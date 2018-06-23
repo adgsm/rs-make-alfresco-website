@@ -16,7 +16,7 @@
 	<types>
 		<type name="makeml:mailingList">
 			<title>Mailing list</title>
-			<parent>cm:folder</parent>
+			<parent>cm:content</parent>
 			<properties>
 				<property name="makeml:name">
 					<type>d:text</type>

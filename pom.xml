@@ -34,6 +34,8 @@
              for embedded run, defaults to the 'local' environment. See SDK Parent POM for more info.
         <env>local</env>
         -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
 	<build>
@@ -89,7 +91,7 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google</groupId>
+			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.6.1</version>
 			<scope>provided</scope>
